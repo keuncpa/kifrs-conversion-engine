@@ -1,0 +1,25 @@
+{
+  "name": "kifrs-converter",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "node scripts/fetch-corp-codes.js",
+    "build": "next build",
+    "start": "next start",
+    "fetch-corps": "node scripts/fetch-corp-codes.js"
+  },
+  "dependencies": {
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "exceljs": "^4.4.0",
+    "adm-zip": "^0.5.10",
+    "openai": "^4.52.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.3.0",
+    "typescript": "^5.4.0"
+  }
+}

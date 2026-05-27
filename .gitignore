@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Node / Next.js
+node_modules/
+.next/
+*.tsbuildinfo
+next-env.d.ts
+.vercel/
+
+# Environment & secrets
+.env
+.env.local
+.env*.local
+
+# DART config (contains API key)
+.dart_config.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Lock files (LibreOffice)
+.~lock.*
+
+# Temporary/misc
+ziXnY69r
+
+# Large binary outputs (reports, sample data)
+*.pdf
+*.docx
+*.xlsx
+*.skill
+
+# Personal career documents
+삼일PwC_*
+web/src/data/corp-codes.json
