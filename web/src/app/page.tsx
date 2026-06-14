@@ -274,16 +274,32 @@ export default function Home() {
       {/* Header */}
       <header className="header">
         <div className="container header-inner">
-          <h1>K-<span>IFRS</span> 컨버전</h1>
-          <span className="header-badge">DART 연동</span>
+          <div className="brand">
+            <div className="brand-mark">KI</div>
+            <div className="brand-text">
+              <h1>K-<span>IFRS</span> 컨버전</h1>
+              <p className="brand-sub">K-GAAP → K-IFRS 전환 자동화 엔진</p>
+            </div>
+          </div>
+          <div className="header-badges">
+            <span className="header-badge">DART 연동</span>
+            <span className="header-badge accent">AI 전환근거</span>
+          </div>
         </div>
       </header>
 
       <main className="container">
-        {/* Search */}
+        {/* Hero */}
         <section className="search-section">
+          <div className="hero">
+            <span className="hero-eyebrow">DART 연동 · 자동 전환 분석</span>
+            <h2 className="hero-title">감사보고서를 <span>K-IFRS</span>로<br />자동 전환합니다</h2>
+            <p className="hero-desc">기업명만 입력하면 DART에서 재무데이터를 수집하고, 전환근거 매핑부터 변동내역·필요자료 체크리스트까지 한 번에 분석합니다.</p>
+          </div>
+
+          {/* Search */}
           <div className="search-card">
-            <p className="search-title">기업명을 입력하면 DART에서 재무데이터를 수집하고 K-IFRS 전환 분석을 자동 수행합니다.</p>
+            <p className="search-title">분석할 기업명과 사업연도를 입력하세요.</p>
             <div className="search-form">
               <div className="form-group company-input">
                 <label>기업명</label>
@@ -334,6 +350,9 @@ export default function Home() {
             )}
           </div>
         </section>
+
+        {/* Architecture (landing only) */}
+        {!conversionData && !converting && <ArchitectureSection />}
 
         {/* Error */}
         {error && (
@@ -467,7 +486,113 @@ export default function Home() {
           </>
         )}
       </main>
+
+      {/* Footer */}
+      <footer className="site-footer">
+        <div className="container footer-inner">
+          <div>
+            <div className="footer-brand">K-<span>IFRS</span> 컨버전 엔진</div>
+            <div className="footer-meta">K-GAAP → K-IFRS End-to-End 자동 전환 파이프라인 · DART OpenAPI 연동</div>
+          </div>
+          <div className="footer-stack">
+            <span className="footer-chip">Next.js 14</span>
+            <span className="footer-chip">TypeScript</span>
+            <span className="footer-chip">Python Engine</span>
+            <span className="footer-chip">DART OpenAPI</span>
+            <span className="footer-chip">Vercel</span>
+          </div>
+        </div>
+      </footer>
     </>
+  );
+}
+
+// ── 아키텍처 설명 섹션 ──
+
+function ArchitectureSection() {
+  const pipeline = [
+    { label: '기업 검색', sub: 'DART corp_code 확보' },
+    { label: '데이터 수집', sub: 'BS·IS·CF + 감사보고서' },
+    { label: '비정형 파싱', sub: '202개 정규식 인식' },
+    { label: 'K-IFRS 매핑', sub: '40+ 계정 × 17 기준서' },
+    { label: '변동내역 산출', sub: '조정액·체크리스트' },
+    { label: '결과 · 엑셀', sub: '대시보드 / 다운로드' },
+  ];
+
+  const layers = [
+    {
+      icon: '🌐', navy: true, name: 'Web Application', tag: 'Next.js 14 · React 18 · TS',
+      items: ['기업검색 · 전환실행 · 결과 대시보드', '6개 서버리스 API 라우트', 'ExcelJS 기반 전환조서 출력'],
+    },
+    {
+      icon: '⚙️', navy: false, name: 'Core Engine', tag: 'Python 3.9+ · TypeScript 5.4',
+      items: ['DART API Client — 재무제표·공시 수집', 'K-IFRS Mapping Engine — 업종별 가중치', '비정형 Excel Parser — 18종 시트 판별'],
+    },
+    {
+      icon: '🔗', navy: false, name: 'External Services', tag: 'opendart.fss.or.kr',
+      items: ['DART OpenAPI — 금융감독원 전자공시', 'OpenAI API — 전환근거 생성 (optional)', 'Vercel — 서버리스 배포'],
+    },
+  ];
+
+  const metrics = [
+    { num: '6,645', label: '총 소스코드 (lines)' },
+    { num: '202', label: '정규식 인식 패턴' },
+    { num: '18종', label: '시트 유형 자동인식' },
+    { num: '40+', label: 'K-IFRS 매핑 규칙' },
+    { num: '17', label: '적용 K-IFRS 기준서' },
+    { num: '8', label: '내부자료 체크 영역' },
+  ];
+
+  return (
+    <section className="arch-section">
+      <div className="arch-head">
+        <span className="arch-eyebrow">System Architecture</span>
+        <h2 className="arch-title">기업명 하나로, 전환의 전 과정을 자동화</h2>
+        <p className="arch-desc">
+          비정형 감사보고서 파싱부터 DART 연동, K-IFRS 전환근거 매핑, 변동내역 산출까지 —
+          수십 단계의 회계 판단을 하나의 파이프라인으로 연결한 End-to-End 컨버전 엔진입니다.
+        </p>
+      </div>
+
+      {/* Pipeline */}
+      <div className="arch-pipeline">
+        {pipeline.map((p, i) => (
+          <div key={i} className="pipe-step">
+            <div className="pipe-num">{i + 1}</div>
+            <div className="pipe-label">{p.label}</div>
+            <div className="pipe-sub">{p.sub}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Layers */}
+      <div className="arch-layers">
+        {layers.map((l, i) => (
+          <div key={i} className="layer-card">
+            <div className="layer-top">
+              <div className={`layer-icon ${l.navy ? 'navy' : ''}`}>{l.icon}</div>
+              <div>
+                <div className="layer-name">{l.name}</div>
+                <div className="layer-tag">{l.tag}</div>
+              </div>
+            </div>
+            <ul className="layer-list">
+              {l.items.map((it, j) => <li key={j}>{it}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      {/* Metrics */}
+      <div className="metrics-strip">
+        {metrics.map((m, i) => (
+          <div key={i} className="metric">
+            <div className="metric-num">{m.num}</div>
+            <div className="metric-label">{m.label}</div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
