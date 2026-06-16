@@ -12,11 +12,11 @@
   <img src="https://img.shields.io/badge/TypeScript-5.4-3178C6?logo=typescript&logoColor=white" />
   <img src="https://img.shields.io/badge/DART_OpenAPI-Connected-00B4D8" />
   <img src="https://img.shields.io/badge/License-MIT-green" />
-  <a href="https://web-two-tau-63.vercel.app"><img src="https://img.shields.io/badge/%E2%96%B6_Live_Demo-Vercel-success?logo=vercel&logoColor=white" /></a>
+  <a href="https://kifrs-conversion-engine.vercel.app"><img src="https://img.shields.io/badge/%E2%96%B6_Live_Demo-Vercel-success?logo=vercel&logoColor=white" /></a>
 </p>
 
 <p align="center">
-  <b>🔗 Live Demo →</b> <a href="https://web-two-tau-63.vercel.app">https://web-two-tau-63.vercel.app</a>
+  <b>🔗 Live Demo →</b> <a href="https://kifrs-conversion-engine.vercel.app">https://kifrs-conversion-engine.vercel.app</a>
 </p>
 
 ---
